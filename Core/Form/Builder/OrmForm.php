@@ -100,6 +100,11 @@ class OrmForm extends AbstractType
             'label' => $column->label,
         );
 
+        global $CUSTOM_DROPDOWN_WIDGETS;
+        if (gettype($CUSTOM_DROPDOWN_WIDGETS) == 'array' && in_array($column->widget, $CUSTOM_DROPDOWN_WIDGETS)) {
+            $column->widget = '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceMultiJson';
+        }
+
         switch ($column->widget) {
             case '\\Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType':
             case '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceMultiJson':

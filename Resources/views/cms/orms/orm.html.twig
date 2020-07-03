@@ -14,6 +14,10 @@
 {% block externalHead %}
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" />
 	<link rel="stylesheet" href="/cms/redactor/redactor.min.css" />
+
+	{% if '/core/custom_widget.css'|file_exists %}
+		<link rel="stylesheet" href="/core/custom_widget.css" />
+	{% endif %}
 {% endblock %}
 
 {% block container %}
@@ -140,8 +144,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
 
-	{% if '/js/core/custom_widget.js'|file_exists %}
-		<script src="/js/core/custom_widget.js"></script>
+	{% if '/core/custom_widget.js'|file_exists %}
+		<script src="/core/custom_widget.js"></script>
 	{% endif %}
 
 	<script src="/cms/develop/js/orm.js"></script>
