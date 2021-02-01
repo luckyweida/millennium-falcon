@@ -77,7 +77,7 @@ class OrmForm extends AbstractType
                     $column = new \stdClass();
                     $column->widget = '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceTree';
                     $column->label = 'Parent:';
-                    $column->sql = 'SELECT t1.id AS `key`, t1.title AS value, t1.parentId AS parentId FROM ProductCategoryNew AS t1 ORDER BY t1.rank';
+                    $column->sql = "SELECT t1.id AS `key`, t1.title AS value, t1.parentId AS parentId FROM {$options['model']->getClassname()} AS t1 ORDER BY t1.rank";
                     $column->required = 0;
                     $column->unique = 0;
                     $builder->add($itm, ChoiceTree::class, $this->getOpts($pdo, $column, $orm));
